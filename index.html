@@ -3,29 +3,215 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Lance Celeste — Portfolio</title>
-  <meta name="description" content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.">
+  <title>Lance Celeste — Computer Engineer</title>
+  <meta name="description" content="Portfolio of Lance Celeste, a Computer Engineering graduate building embedded, IoT and networked systems with ESP32, sensor fusion and cloud services.">
+  <meta name="theme-color" content="#092635">
   <link rel="canonical" href="https://lncclstdev-code.github.io/">
   <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
 
   <!-- Open Graph (link previews) -->
-  <meta property="og:title" content="Lance Celeste — Portfolio">
-  <meta property="og:description" content="Lorem ipsum dolor sit amet.">
+  <meta property="og:title" content="Lance Celeste — Computer Engineer">
+  <meta property="og:description" content="Embedded, IoT and networked systems, from ESP32 firmware to the cloud.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://lncclstdev-code.github.io/">
   <meta property="og:image" content="https://lncclstdev-code.github.io/assets/img/og-image.png">
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Public+Sans:wght@400;500;600&display=swap">
   <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
   <a href="#main" class="skip-link">Skip to content</a>
-  <header>
-    <nav aria-label="Primary"></nav>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/">Lance Celeste</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
+        <span class="nav-toggle-label">Menu</span>
+      </button>
+      <nav aria-label="Primary" id="primary-nav" class="primary-nav">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#background">Background</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
+
   <main id="main">
-    <h1>Lance Celeste</h1>
+    <section class="hero" aria-labelledby="hero-title">
+      <canvas id="mesh" class="hero-mesh" aria-hidden="true"></canvas>
+      <div class="container hero-inner">
+        <h1 id="hero-title">Lance Celeste</h1>
+        <!-- <p class="hero-role">Computer engineer building connected devices, from ESP32 firmware to the cloud services they talk to.</p>
+        <p class="hero-meta">BS Computer Engineering, University of the Philippines Diliman, 2026. Based in Antipolo City, Philippines.</p> -->
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#projects">See my projects</a>
+          <a class="btn btn-ghost" href="#contact">Get in touch</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about" aria-labelledby="about-title">
+      <div class="container split">
+        <h2 id="about-title">About</h2>
+        <div class="prose">
+          <p>
+            I’m a Computer Engineering graduate from the University of the Philippines Diliman and I currently work as a Systems Programmer at the City Government of Antipolo.
+          </p>
+          <p>
+            I develop and maintain software systems that help government employees streamline workflows, use information technology more effectively, and deliver better and more efficient services to citizens. I enjoy building practical solutions that turn technology into meaningful improvements in how organizations work and serve their communities.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="skills" aria-labelledby="skills-title">
+      <div class="container split">
+        <h2 id="skills-title">Skills</h2>
+        <dl class="skills">
+          <div>
+            <dt>Programming</dt>
+            <dd>Python, Django, C/C++, Rust, MySQL, VB.NET, HDL and Verilog</dd>
+          </div>
+          <div>
+            <dt>Embedded systems and prototyping</dt>
+            <dd>ESP32, ESP8266, Arduino, FPGA, sensor integration, circuit and pcb design, hardware debugging</dd>
+          </div>
+          <div>
+            <dt>Networking and cloud</dt>
+            <dd>TCP/IP, HTTP and HTTPS, DNS, routing fundamentals, Linux</dd>
+          </div>
+          <div>
+            <dt>Tools</dt>
+            <dd>VS Code, Visual Studio, Arduino IDE, Vivado, MATLAB and Simulink, LTSpice, MySQL Workbench, Git, GitHub</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="section" id="projects" aria-labelledby="projects-title">
+      <div class="container">
+        <h2 id="projects-title">Projects</h2>
+        <!-- <p class="section-intro">Each project has its own page with the design, the decisions and the results.</p>
+
+        <article class="project">
+          <div class="project-visual" aria-hidden="true">
+            <svg viewBox="0 0 240 150" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <circle cx="120" cy="22" r="12"/>
+              <path d="M120 34v26" stroke-dasharray="2 6"/>
+              <rect x="104" y="60" width="32" height="22" rx="5"/>
+              <path d="M112 82 52 112M120 82v30M128 82l60 30"/>
+              <circle cx="48" cy="120" r="10"/>
+              <circle cx="120" cy="124" r="10"/>
+              <circle cx="192" cy="120" r="10"/>
+            </svg>
+          </div>
+          <div class="project-body">
+            <h3>Smart lighting system for home automation</h3>
+            <p>A hybrid network for lighting control: ESP-NOW links devices directly for low latency, while an HTTP interface adds remote access and monitoring. Messages are structured as JSON packets so the system is easy to extend.</p>
+            <ul class="tags" aria-label="Technologies">
+              <li>ESP32</li><li>ESP-NOW</li><li>HTTP</li><li>JSON</li>
+            </ul>
+            <a class="text-link" href="/projects/smart-lighting-system.html">Read the project page<span class="visually-hidden"> for the smart lighting system</span></a>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="project-visual" aria-hidden="true">
+            <svg viewBox="0 0 240 150" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <path d="M12 36c14-14 26 14 40 0s26 14 40 0"/>
+              <path d="M12 76c14-6 26 6 40 0s26 6 40 0"/>
+              <path d="M12 116c14 14 26-14 40 0s26-14 40 0"/>
+              <path d="M96 36 150 76M96 76h54M96 116 150 76"/>
+              <circle cx="168" cy="76" r="18"/>
+              <path d="M186 76h42"/>
+              <circle cx="228" cy="76" r="4" fill="currentColor"/>
+            </svg>
+          </div>
+          <div class="project-body">
+            <h3>KLSG: Keyed Long-Lasting Smart Gateway</h3>
+            <p>An IoT doorbell that combines several sensors and uses Mahalanobis distance in its fusion logic to detect anomalies and classify events. Analysing the sensors together reduced false positives, and alerts reach the owner in real time.</p>
+            <ul class="tags" aria-label="Technologies">
+              <li>Sensor fusion</li><li>Mahalanobis distance</li><li>IoT</li><li>Networking</li>
+            </ul>
+            <a class="text-link" href="/projects/klsg-smart-doorbell.html">Read the project page<span class="visually-hidden"> for KLSG</span></a>
+          </div>
+        </article> -->
+      </div>
+    </section>
+
+    <section class="section section-alt" id="background" aria-labelledby="background-title">
+      <div class="container split">
+        <h2 id="background-title">Background</h2>
+        <div class="background">
+          <section aria-labelledby="edu-title">
+            <h3 id="edu-title">Education</h3>
+            <p class="entry-title">BS Computer Engineering</p>
+            <p>University of the Philippines Diliman, Electrical and Electronics Engineering Institute. Graduated July 2026.</p>
+            <!-- <p class="coursework">Coursework included data structures and algorithms, object-oriented programming, computer networking, microprocessors and microcontrollers, digital systems design, and analog and digital electronics.</p> -->
+          </section>
+          <!-- <section aria-labelledby="org-title">
+            <h3 id="org-title">Organizations</h3>
+            <ul class="entries">
+              <li>
+                <p class="entry-title">IEEE UP Diliman Student Branch</p>
+                <p>Publicity and Information Committee, 2025 to 2026. Maintained web content and produced publicity materials.</p>
+              </li>
+              <li>
+                <p class="entry-title">UP Engineering Radio Guild</p>
+                <p>Secretariat Committee, 2024 to 2026. Helped with documentation and publicity.</p>
+              </li>
+            </ul>
+          </section> -->
+          <section aria-labelledby="cert-title">
+            <h3 id="cert-title">Certification</h3>
+            <p class="entry-title">Civil Service Eligibility, Professional Level</p>
+            <p>Civil Service Commission of the Philippines, 2025. Rating: 93.29.</p>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact" id="contact" aria-labelledby="contact-title">
+      <div class="container">
+        <h2 id="contact-title">Contact</h2>
+        <!-- <p class="contact-lead">I'm open to embedded, IoT and software engineering roles. Email is the best way to reach me.</p> -->
+        <a class="btn btn-primary" href="mailto:lncclst.celeste@gmail.com">lncclst.admin@gmail.com</a>
+        <div class="contact-links">
+        <a href="https://github.com/lncclstdev-code"
+            target="_blank"
+            rel="noopener noreferrer">GitHub</a>
+
+        <a href="https://www.linkedin.com/in/lance-celeste/"
+            target="_blank"
+            rel="noopener noreferrer">LinkedIn</a>
+        </div>
+      </div>
+    </section>
   </main>
-  <footer></footer>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; <span id="year">2026</span> Lance Celeste</p>
+      <div class="footer-links">
+        <a href="https://github.com/lncclstdev-code"
+            target="_blank"
+            rel="noopener noreferrer">GitHub</a>
+
+        <a href="https://www.linkedin.com/in/lance-celeste/"
+            target="_blank"
+            rel="noopener noreferrer">LinkedIn</a>
+
+        <a href="#main">Back to top</a>
+        </div>
+    </div>
+  </footer>
+
   <script src="/assets/js/main.js" defer></script>
 </body>
 </html>

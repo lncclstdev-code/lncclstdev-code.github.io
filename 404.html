@@ -3,18 +3,59 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Page not found — Your Name</title>
-  <meta name="description" content="The page you were looking for could not be found.">
+  <title>Page not found — Lance Celeste</title>
   <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#092635">
   <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Public+Sans:wght@400;500;600&display=swap">
   <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
   <a href="#main" class="skip-link">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/">Lance Celeste</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
+        <span class="nav-toggle-label">Menu</span>
+      </button>
+      <nav aria-label="Primary" id="primary-nav" class="primary-nav">
+        <ul>
+          <li><a href="/#about">About</a></li>
+          <li><a href="/#skills">Skills</a></li>
+          <li><a href="/#projects">Projects</a></li>
+          <li><a href="/#background">Background</a></li>
+          <li><a href="/#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
   <main id="main">
-    <h1>404</h1>
-    <p>Sorry, that page doesn't exist or has moved.</p>
-    <p><a href="/">Back to the homepage</a></p>
+    <section class="hero" aria-labelledby="error-title">
+      <canvas id="mesh" class="hero-mesh" aria-hidden="true"></canvas>
+      <div class="container hero-inner">
+        <p class="error-code" aria-hidden="true">404</p>
+        <h1 id="error-title" class="error-title">This page couldn't be found</h1>
+        <p class="hero-role">The link may be broken, or the page may have moved. Head back to the homepage or jump straight to my projects.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="/">Go to homepage</a>
+          <a class="btn btn-ghost" href="/#projects">See my projects</a>
+        </div>
+      </div>
+    </section>
   </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; <span id="year">2026</span> Lance Celeste</p>
+      <a href="/">Back to homepage</a>
+    </div>
+  </footer>
+
+  <script src="/assets/js/main.js" defer></script>
 </body>
 </html>
