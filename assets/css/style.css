@@ -10,7 +10,7 @@
   --line: rgba(158, 200, 185, 0.22);
 
   --font-display: "Space Mono", "Press Start 2P", "Courier New", monospace;
-  --font-body: "Space Mono", "Pixelify Sans", "Courier New", monospace;
+  --font-body: "Courier New", Courier, monospace;
 
   --step--1: clamp(0.95rem, 0.92rem + 0.1vw, 1.05rem);
   --step-0: clamp(1.1rem, 1.05rem + 0.2vw, 1.25rem);
@@ -49,9 +49,8 @@ body {
   font-family: var(--font-body);
   font-size: var(--step-0);
   line-height: 1.6;
-  -webkit-font-smoothing: none;
-  font-smooth: never;
-  text-rendering: optimizeSpeed;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 h1, h2, h3 {
