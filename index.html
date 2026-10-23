@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Lance Celeste — Computer Engineer</title>
-  <meta name="description" content="Portfolio of Lance Celeste, a Computer Engineer">
+  <meta name="description" content="Portfolio of Lance Celeste, a Computer Engineer building ESP32 firmware, sensor systems and wireless IoT projects.">
   <meta name="theme-color" content="#092635">
   <link rel="canonical" href="https://lncclstdev-code.github.io/">
   <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
@@ -34,8 +34,8 @@
       <nav aria-label="Primary" id="primary-nav" class="primary-nav">
         <ul>
           <li><a href="#about">About</a></li>
-          <li><a href="#skills">Skills</a></li>
           <li><a href="#projects">Projects</a></li>
+          <li><a href="#skills">Skills</a></li>
           <li><a href="#background">Background</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
@@ -46,10 +46,11 @@
   <main id="main">
     <section class="hero" aria-labelledby="hero-title">
       <canvas id="mesh" class="hero-mesh" aria-hidden="true"></canvas>
+      <pre id="donut" class="hero-donut" aria-hidden="true"></pre>
       <div class="container hero-inner">
         <h1 id="hero-title">Lance Celeste</h1>
         <p class="hero-role">Build. Solve. Learn. Grow.</p>
-        <p class="hero-meta">BS Computer Engineering, University of the Philippines Diliman, 2026. Based in Antipolo City, Philippines.</p>
+        <p class="hero-meta">Computer Engineer working with ESP32 firmware, sensors and wireless protocols. UP Diliman, 2026. Based in Antipolo City, Philippines.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="#projects">See my projects</a>
           <a class="btn btn-ghost" href="#contact">Get in touch</a>
@@ -62,87 +63,107 @@
         <h2 id="about-title">About</h2>
         <div class="prose">
           <p>
-            I’m a Computer Engineering graduate from the University of the Philippines Diliman and I currently work as a Systems Programmer at the City Government of Antipolo.
+            I like the layer where software meets hardware: sensors, microcontrollers, wireless protocols and the firmware that ties them together. I graduated in Computer Engineering from the University of the Philippines Diliman in 2026, and my capstone and side projects are built around ESP32 and ESP8266 systems, from sensor fusion to smart home integration.
           </p>
           <p>
-            I develop and maintain software systems that help government employees streamline workflows, use information technology more effectively, and deliver better and more efficient services to citizens. I enjoy building practical solutions that turn technology into meaningful improvements in how organizations work and serve their communities.
+            I also work as a Systems Programmer at the City Government of Antipolo, developing and maintaining software that helps government employees streamline workflows and deliver better, more efficient services to citizens.
           </p>
         </div>
       </div>
     </section>
 
-    <section class="section section-alt" id="skills" aria-labelledby="skills-title">
-      <div class="container split">
-        <h2 id="skills-title">Skills</h2>
-        <dl class="skills">
-          <div>
-            <dt>Programming</dt>
-            <dd>Python, Django, C/C++, Rust, MySQL, VB.NET, HDL and Verilog</dd>
-          </div>
-          <div>
-            <dt>Embedded systems and prototyping</dt>
-            <dd>ESP32, ESP8266, Arduino, FPGA, sensor integration, circuit and pcb design, hardware debugging</dd>
-          </div>
-          <div>
-            <dt>Networking and cloud</dt>
-            <dd>TCP/IP, HTTP and HTTPS, DNS, routing fundamentals, Linux</dd>
-          </div>
-          <div>
-            <dt>Tools</dt>
-            <dd>VS Code, Visual Studio, Arduino IDE, Vivado, MATLAB and Simulink, LTSpice, MySQL Workbench, Git, GitHub</dd>
-          </div>
-        </dl>
-      </div>
-    </section>
-
-    <section class="section" id="projects" aria-labelledby="projects-title">
+    <section class="section section-alt" id="projects" aria-labelledby="projects-title">
       <div class="container">
         <h2 id="projects-title">Projects</h2>
-        <!-- <p class="section-intro">Each project has its own page with the design, the decisions and the results.</p>
+        <p class="section-intro">Embedded and IoT work, from firmware on the device to the dashboard on the screen.</p>
 
         <article class="project">
-          <div class="project-visual" aria-hidden="true">
-            <svg viewBox="0 0 240 150" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-              <circle cx="120" cy="22" r="12"/>
-              <path d="M120 34v26" stroke-dasharray="2 6"/>
-              <rect x="104" y="60" width="32" height="22" rx="5"/>
-              <path d="M112 82 52 112M120 82v30M128 82l60 30"/>
-              <circle cx="48" cy="120" r="10"/>
-              <circle cx="120" cy="124" r="10"/>
-              <circle cx="192" cy="120" r="10"/>
-            </svg>
+          <div class="project-media">
+            <figure class="is-main">
+              <a href="/assets/img/klsg-prototype.jpg" target="_blank" rel="noopener noreferrer">
+                <img src="/assets/img/klsg-prototype.jpg" alt="The KLSG prototype in its black enclosure, showing the PIR dome, camera lens, RGB LED and a glowing blue fingerprint reader" width="955" height="1400" loading="lazy">
+              </a>
+              <figcaption>Prototype, front view</figcaption>
+            </figure>
+            <figure>
+              <a href="/assets/img/klsg-schematic.png" target="_blank" rel="noopener noreferrer">
+                <img src="/assets/img/klsg-schematic.png" alt="Wiring schematic of the KLSG: an ESP32 connected to a PIR sensor, MPU6050 accelerometer over I2C, fingerprint sensor over UART, RGB LED, buzzer and the copper-pad and spring tamper contact" width="1474" height="914" loading="lazy">
+              </a>
+              <figcaption>Hardware schematic</figcaption>
+            </figure>
+            <figure>
+              <a href="/assets/img/klsg-dashboard.png" target="_blank" rel="noopener noreferrer">
+                <img src="/assets/img/klsg-dashboard.png" alt="The KLSG web dashboard showing the live camera feed with a timestamp and the current Mahalanobis distance reading" width="553" height="504" loading="lazy">
+              </a>
+              <figcaption>Live dashboard</figcaption>
+            </figure>
           </div>
           <div class="project-body">
-            <h3>Smart lighting system for home automation</h3>
-            <p>A hybrid network for lighting control: ESP-NOW links devices directly for low latency, while an HTTP interface adds remote access and monitoring. Messages are structured as JSON packets so the system is easy to extend.</p>
+            <h3>KLSG: Keyed Long-Lasting Smart Gateway</h3>
+            <p>A capstone ESP32 smart doorbell that fuses camera pixel deviation, PIR and accelerometer readings into one feature vector and scores it with Mahalanobis distance against a calibrated baseline. Chi-square thresholds at 99.75%, 99.95% and 99.99% confidence grade each anomaly on an RGB LED and a live web dashboard.</p>
+            <p>A copper-pad and spring tamper contact, a fingerprint module and email alerts that name known or unknown visitors complete the system. Accounting for variance and correlation between sensors cut false positives compared with Euclidean distance, and a 3-hour calibration baseline proved the most stable day and night. Against a Ring Doorbell Pro it reached a 100% true positive rate on tampering with a near-zero false positive rate on normal foot traffic. The prototype was assessed at Technology Readiness Level 6 and presented at NEECECON 2026.</p>
             <ul class="tags" aria-label="Technologies">
-              <li>ESP32</li><li>ESP-NOW</li><li>HTTP</li><li>JSON</li>
+              <li>ESP32</li><li>Sensor fusion</li><li>Mahalanobis distance</li><li>PIR</li><li>Accelerometer</li><li>Camera</li><li>IoT</li>
             </ul>
-            <a class="text-link" href="/projects/smart-lighting-system.html">Read the project page<span class="visually-hidden"> for the smart lighting system</span></a>
+            <a class="text-link" href="/assets/docs/klsg-paper.pdf" target="_blank" rel="noopener noreferrer">Read the paper<span class="visually-hidden"> on KLSG (PDF)</span></a>
           </div>
         </article>
 
         <article class="project">
           <div class="project-visual" aria-hidden="true">
             <svg viewBox="0 0 240 150" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-              <path d="M12 36c14-14 26 14 40 0s26 14 40 0"/>
-              <path d="M12 76c14-6 26 6 40 0s26 6 40 0"/>
-              <path d="M12 116c14 14 26-14 40 0s26-14 40 0"/>
-              <path d="M96 36 150 76M96 76h54M96 116 150 76"/>
-              <circle cx="168" cy="76" r="18"/>
-              <path d="M186 76h42"/>
-              <circle cx="228" cy="76" r="4" fill="currentColor"/>
+              <circle cx="30" cy="30" r="10"/>
+              <circle cx="30" cy="75" r="10"/>
+              <circle cx="30" cy="120" r="10"/>
+              <path d="M40 30 92 68M40 75h52M40 120 92 82" stroke-dasharray="2 6"/>
+              <rect x="92" y="56" width="44" height="38" rx="5"/>
+              <path d="M136 75h36"/>
+              <rect x="172" y="60" width="28" height="30" rx="4"/>
+              <path d="M200 75h20"/>
+              <circle cx="226" cy="75" r="4" fill="currentColor"/>
             </svg>
           </div>
           <div class="project-body">
-            <h3>KLSG: Keyed Long-Lasting Smart Gateway</h3>
-            <p>An IoT doorbell that combines several sensors and uses Mahalanobis distance in its fusion logic to detect anomalies and classify events. Analysing the sensors together reduced false positives, and alerts reach the owner in real time.</p>
+            <h3>ESP-NOW to ESPHome bridge for Home Assistant</h3>
+            <p>A protocol bridge that lets low-power ESP devices join a smart home without each one needing a full Wi-Fi connection. The hub receives JSON packets from the devices over ESP-NOW and passes them through UART to an ESPHome node, which exposes the data to Home Assistant dashboards and automations. It also sends commands back to individual devices by MAC address.</p>
+            <p class="datapath">ESP-NOW devices → bridge → UART → ESPHome → Home Assistant</p>
             <ul class="tags" aria-label="Technologies">
-              <li>Sensor fusion</li><li>Mahalanobis distance</li><li>IoT</li><li>Networking</li>
+              <li>ESP8266</li><li>ESP-NOW</li><li>UART</li><li>ESPHome</li><li>Home Assistant</li>
             </ul>
-            <a class="text-link" href="/projects/klsg-smart-doorbell.html">Read the project page<span class="visually-hidden"> for KLSG</span></a>
           </div>
-        </article> -->
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="skills" aria-labelledby="skills-title">
+      <div class="container split">
+        <h2 id="skills-title">Skills</h2>
+        <dl class="skills">
+          <div>
+            <dt>Embedded systems and prototyping</dt>
+            <dd>ESP32, ESP8266, Arduino, PlatformIO, FPGA, sensor integration, circuit design, prototyping, hardware debugging</dd>
+          </div>
+          <div>
+            <dt>Programming</dt>
+            <dd>C/C++, Rust, Python, VB.NET, JavaScript, HDL and Verilog</dd>
+          </div>
+          <div>
+            <dt>Networking and protocols</dt>
+            <dd>ESP-NOW, UART, ESPHome, Home Assistant, TCP/IP, HTTP and HTTPS, DNS, routing fundamentals</dd>
+          </div>
+          <div>
+            <dt>Software and web</dt>
+            <dd>Django, FastAPI, REST APIs, MySQL, Crystal Reports, HTML, CSS, JavaScript</dd>
+          </div>
+          <div>
+            <dt>Servers and cloud</dt>
+            <dd>Linux and Ubuntu, Apache, XAMPP, cPanel, SSH, Oracle Cloud Infrastructure</dd>
+          </div>
+          <div>
+            <dt>Tools</dt>
+            <dd>Git, GitHub, VS Code, Arduino IDE, PlatformIO, AMD/Xilinx Vivado, MATLAB and Simulink, LTSpice, MySQL Workbench</dd>
+          </div>
+        </dl>
       </div>
     </section>
 
@@ -154,8 +175,48 @@
             <h3 id="edu-title">Education</h3>
             <p class="entry-title">BS Computer Engineering</p>
             <p>University of the Philippines Diliman, Electrical and Electronics Engineering Institute. Graduated July 2026.</p>
+            <p class="coursework">Coursework: Embedded Systems (Microprocessors and Microcontrollers), Digital Systems Design, Electronics Engineering (Analog and Digital Circuits), Computer Networking, Data Structures and Algorithms, Object-Oriented Programming.</p>
           </section>
-          
+
+          <section aria-labelledby="exp-title">
+            <h3 id="exp-title">Experience</h3>
+            <p class="entry-title">Systems Programmer, City Government of Antipolo</p>
+            <p>Present. Builds and maintains software systems that streamline workflows for government employees and support better services to citizens, using VB.NET, Python (Django and FastAPI), MySQL, Crystal Reports and REST APIs on Apache, XAMPP, cPanel and Ubuntu servers.</p>
+          </section>
+
+          <section aria-labelledby="pres-title">
+            <h3 id="pres-title">Presentation</h3>
+            <p class="entry-title">NEECECON 2026</p>
+            <p>Presented KLSG at the National Electrical, Electronics, and Computer Engineering Conference, UP BGC Campus, Taguig, July 14 to 15, 2026, with Rhea Lynn Alejandria and John Ace Viola. <a href="/assets/docs/klsg-paper.pdf" target="_blank" rel="noopener noreferrer">Read the paper (PDF)</a>.</p>
+          </section>
+
+          <section aria-labelledby="cert-title">
+            <h3 id="cert-title">Certifications</h3>
+            <div class="entries">
+              <div>
+                <p class="entry-title">Civil Service Eligibility (Professional Level)</p>
+                <p>Civil Service Commission, Philippines. 2025, rating 93.29.</p>
+              </div>
+              <div>
+                <p class="entry-title">AI Fundamentals: Foundations for Understanding AI</p>
+                <p>Cisco. August 2026.</p>
+              </div>
+            </div>
+          </section>
+
+          <section aria-labelledby="org-title">
+            <h3 id="org-title">Organizations</h3>
+            <div class="entries">
+              <div>
+                <p class="entry-title">IEEE UP Diliman Student Branch</p>
+                <p>Publicity and Information Committee, 2025 to 2026. Publicity materials, documentation, and web content for the organization's platforms.</p>
+              </div>
+              <div>
+                <p class="entry-title">UP Engineering Radio Guild</p>
+                <p>Secretariat Committee, 2024 to 2026. Publicity materials and documentation.</p>
+              </div>
+            </div>
+          </section>
         </div>
       </div>
     </section>
@@ -163,7 +224,7 @@
     <section class="section contact" id="contact" aria-labelledby="contact-title">
       <div class="container">
         <h2 id="contact-title">Contact</h2>
-        <p class="contact-lead">I'm open to embedded, IoT and software engineering roles. Email is the best way to reach me.</p>
+        <p class="contact-lead">I'm open to embedded, firmware and IoT engineering roles. Email is the best way to reach me.</p>
         <a class="btn btn-primary" href="mailto:lncclst.admin@gmail.com">lncclst.admin@gmail.com</a>
         <div class="contact-links">
         <a href="https://github.com/lncclstdev-code"

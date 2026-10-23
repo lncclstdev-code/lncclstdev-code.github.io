@@ -48,6 +48,61 @@
     sections.forEach((s) => spy.observe(s));
   }
 
+  /* ---------- Hero: spinning ASCII donut ---------- */
+  const donutEl = document.getElementById('donut');
+  if (donutEl) {
+    const W = 60, H = 30, SHADES = '.,-~:;=!*#$@';
+    let A = 0, B = 0, dRaf = 0, dLast = 0, dVisible = true;
+
+    const renderDonut = () => {
+      const out = new Array(W * H).fill(' ');
+      const zbuf = new Float32Array(W * H);
+      const e = Math.sin(A), g = Math.cos(A), n = Math.sin(B), m = Math.cos(B);
+      for (let th = 0; th < 6.28; th += 0.07) {
+        const d = Math.cos(th), f = Math.sin(th);
+        for (let ph = 0; ph < 6.28; ph += 0.02) {
+          const c = Math.sin(ph), l = Math.cos(ph);
+          const hh = d + 2;
+          const D = 1 / (c * hh * e + f * g + 5);
+          const t = c * hh * g - f * e;
+          const x = (W / 2 + 22 * D * (l * hh * m - t * n)) | 0;
+          const y = (H / 2 + 11 * D * (l * hh * n + t * m)) | 0;
+          const o = x + W * y;
+          const N = 8 * ((f * e - c * d * g) * m - c * d * e - f * g - l * d * n);
+          if (y >= 0 && y < H && x >= 0 && x < W && D > zbuf[o]) {
+            zbuf[o] = D;
+            out[o] = SHADES[N > 0 ? Math.min(N | 0, 11) : 0];
+          }
+        }
+      }
+      let text = '';
+      for (let r = 0; r < H; r++) text += out.slice(r * W, (r + 1) * W).join('') + '\n';
+      donutEl.textContent = text;
+    };
+
+    const donutFrame = (now) => {
+      dRaf = requestAnimationFrame(donutFrame);
+      if (now - dLast < 33) return; // ~30 fps
+      dLast = now;
+      A += 0.04;
+      B += 0.02;
+      renderDonut();
+    };
+    const donutStart = () => { if (!dRaf && !reduceMotion.matches) dRaf = requestAnimationFrame(donutFrame); };
+    const donutStop = () => { cancelAnimationFrame(dRaf); dRaf = 0; };
+
+    renderDonut(); // static frame, also used for reduced motion
+    donutStart();
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(([entry]) => {
+        dVisible = entry.isIntersecting;
+        dVisible && !document.hidden ? donutStart() : donutStop();
+      }).observe(donutEl);
+    }
+    document.addEventListener('visibilitychange', () => (document.hidden ? donutStop() : dVisible && donutStart()));
+    reduceMotion.addEventListener('change', () => (reduceMotion.matches ? donutStop() : donutStart()));
+  }
+
   /* ---------- Hero: pixel packets hopping across a wireless mesh ---------- */
   const canvas = document.getElementById('mesh');
   if (!canvas || !canvas.getContext) return;

@@ -255,6 +255,25 @@ a { color: var(--accent-light); }
   margin-top: 2rem;
 }
 
+/* ASCII donut */
+.hero-donut {
+  position: absolute;
+  right: 4vw;
+  top: 50%;
+  transform: translateY(-50%);
+  margin: 0;
+  font: 400 clamp(9px, min(2.6vw, 2.2vh), 20px)/1.2 "Courier New", Courier, monospace;
+  letter-spacing: 0;
+  color: var(--accent-light);
+  opacity: 0.45;
+  white-space: pre;
+  pointer-events: none;
+  user-select: none;
+}
+@media (max-width: 720px) {
+  .hero-donut { right: 50%; transform: translate(50%, -50%); opacity: 0.28; }
+}
+
 /* ---------- Buttons ---------- */
 .btn {
   position: relative;
@@ -307,8 +326,14 @@ a { color: var(--accent-light); }
   font-size: var(--step-2);
   color: var(--text);
 }
+.section h2 {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5em;
+}
 .section h2::before {
-  content: "> ";
+  content: ">";
+  flex: none;
   color: var(--accent);
 }
 
@@ -386,6 +411,8 @@ a { color: var(--accent-light); }
 
 .project-body p { color: var(--text); margin-top: 0.9rem; }
 
+.datapath { font-size: var(--step--1); color: var(--accent-light); margin-top: 0.9rem; }
+
 .tags { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1.25rem 0; }
 .tags li {
   padding: 0.2rem 0.7rem;
@@ -413,6 +440,49 @@ a { color: var(--accent-light); }
   .project { grid-template-columns: 1fr 1.4fr; gap: 2.5rem; align-items: center; }
   .project:nth-of-type(even) { grid-template-columns: 1.4fr 1fr; }
   .project:nth-of-type(even) .project-visual { order: 2; }
+}
+
+
+/* Project media (left column of a project card) */
+.project-media {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin: 0;
+}
+.project-media figure { margin: 0; }
+.project-media .is-main { grid-column: 1 / -1; }
+.project-media a {
+  display: block;
+  padding: 0.6rem;
+  background: var(--main);
+  box-shadow:
+    0 -2px 0 0 var(--accent),
+    0 2px 0 0 var(--accent),
+    -2px 0 0 0 var(--accent),
+    2px 0 0 0 var(--accent);
+}
+.project-media a:hover {
+  box-shadow:
+    0 -2px 0 0 var(--accent-light),
+    0 2px 0 0 var(--accent-light),
+    -2px 0 0 0 var(--accent-light),
+    2px 0 0 0 var(--accent-light);
+}
+.project-media img {
+  display: block;
+  width: 100%;
+  height: 9rem;
+  object-fit: contain;
+  background: var(--main);
+}
+.project-media .is-main img { height: 20rem; }
+.project-media figcaption {
+  margin-top: 0.6rem;
+  font-family: var(--font-display);
+  font-size: 0.6rem;
+  line-height: 1.6;
+  color: var(--text-muted);
 }
 
 /* ---------- Background ---------- */
